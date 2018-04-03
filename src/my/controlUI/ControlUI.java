@@ -138,13 +138,19 @@ public class ControlUI extends javax.swing.JFrame implements SerialPortEventList
         jLabel8 = new javax.swing.JLabel();
         setTempButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        roomTempField = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        outTempField = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         ControlPanel = new javax.swing.JPanel();
         TempPanel = new javax.swing.JPanel();
         InTempLable = new javax.swing.JLabel();
         OutTempLable = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        roomTemp_show = new javax.swing.JTextField();
+        outTemp_show = new javax.swing.JTextField();
         SetTempLable = new javax.swing.JLabel();
         setTemp_show = new javax.swing.JTextField();
         ChangeSetTemp = new javax.swing.JButton();
@@ -175,7 +181,7 @@ public class ControlUI extends javax.swing.JFrame implements SerialPortEventList
         Set_Temp.setType(java.awt.Window.Type.POPUP);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel7.setText("Set Room Temperature to:");
+        jLabel7.setText("Set Temperature to:");
 
         setTempField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         setTempField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -198,25 +204,66 @@ public class ControlUI extends javax.swing.JFrame implements SerialPortEventList
             }
         });
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel9.setText("Room Temperature:");
+
+        roomTempField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        roomTempField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        roomTempField.setText("24");
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel10.setText("℃");
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel11.setText("Outdoor Temperature:");
+
+        outTempField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        outTempField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        outTempField.setText("24");
+        outTempField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                outTempFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel12.setText("℃");
+
         javax.swing.GroupLayout Set_TempLayout = new javax.swing.GroupLayout(Set_Temp.getContentPane());
         Set_Temp.getContentPane().setLayout(Set_TempLayout);
         Set_TempLayout.setHorizontalGroup(
             Set_TempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Set_TempLayout.createSequentialGroup()
-                .addGroup(Set_TempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Set_TempLayout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(setTempButton, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(80, 80, 80)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE))
+            .addGroup(Set_TempLayout.createSequentialGroup()
+                .addGap(85, 85, 85)
+                .addComponent(setTempButton, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(95, 95, 95)
+                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(73, 73, 73))
+            .addGroup(Set_TempLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(Set_TempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Set_TempLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(setTempField)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                        .addComponent(outTempField, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(Set_TempLayout.createSequentialGroup()
+                        .addGroup(Set_TempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(Set_TempLayout.createSequentialGroup()
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(roomTempField, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(Set_TempLayout.createSequentialGroup()
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(setTempField)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(30, 30, 30))))
         );
         Set_TempLayout.setVerticalGroup(
             Set_TempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,9 +275,23 @@ public class ControlUI extends javax.swing.JFrame implements SerialPortEventList
                         .addGroup(Set_TempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(setTempField)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(Set_TempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(Set_TempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Set_TempLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addGroup(Set_TempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(roomTempField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Set_TempLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(Set_TempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(outTempField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(Set_TempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(setTempButton)
                     .addComponent(jButton1))
@@ -251,16 +312,16 @@ public class ControlUI extends javax.swing.JFrame implements SerialPortEventList
         OutTempLable.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
         OutTempLable.setText("Outside Temp(℃)");
 
-        jTextField1.setEditable(false);
-        jTextField1.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
-        jTextField1.setText("0");
+        roomTemp_show.setEditable(false);
+        roomTemp_show.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        roomTemp_show.setText("0");
 
-        jTextField2.setEditable(false);
-        jTextField2.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
-        jTextField2.setText("10");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        outTemp_show.setEditable(false);
+        outTemp_show.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        outTemp_show.setText("10");
+        outTemp_show.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                outTemp_showActionPerformed(evt);
             }
         });
 
@@ -290,8 +351,8 @@ public class ControlUI extends javax.swing.JFrame implements SerialPortEventList
                     .addComponent(SetTempLable, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(TempPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(outTemp_show, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(roomTemp_show, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(setTemp_show, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TempPanelLayout.createSequentialGroup()
@@ -305,11 +366,11 @@ public class ControlUI extends javax.swing.JFrame implements SerialPortEventList
                 .addContainerGap()
                 .addGroup(TempPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(OutTempLable, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2))
+                    .addComponent(outTemp_show))
                 .addGap(18, 18, 18)
                 .addGroup(TempPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(InTempLable, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1))
+                    .addComponent(roomTemp_show))
                 .addGap(18, 18, 18)
                 .addGroup(TempPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SetTempLable, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -505,7 +566,7 @@ public class ControlUI extends javax.swing.JFrame implements SerialPortEventList
             HelpPanel.setLayout(HelpPanelLayout);
             HelpPanelLayout.setHorizontalGroup(
                 HelpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGap(0, 599, Short.MAX_VALUE)
+                .addGap(0, 602, Short.MAX_VALUE)
             );
             HelpPanelLayout.setVerticalGroup(
                 HelpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -530,7 +591,7 @@ public class ControlUI extends javax.swing.JFrame implements SerialPortEventList
                 AboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(AboutPanelLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
                     .addContainerGap())
             );
             AboutPanelLayout.setVerticalGroup(
@@ -614,9 +675,15 @@ public class ControlUI extends javax.swing.JFrame implements SerialPortEventList
     private void setTempButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setTempButtonActionPerformed
         
         String setTemp_toString = "S" + this.setTempField.getText();
+        String roomTemp_toString = "R" + this.roomTempField.getText();
+        String outTemp_toString = "O" + this.outTempField.getText();
         try {
             this.setTemp_show.setText(this.setTempField.getText());
+            this.outTemp_show.setText(this.outTempField.getText());
+            this.roomTemp_show.setText(this.roomTempField.getText());
             output.write(setTemp_toString.getBytes());
+            output.write(outTemp_toString.getBytes());
+            output.write(roomTemp_toString.getBytes());
             this.Set_Temp.dispose();
         } catch (IOException ex) {
             Logger.getLogger(ControlUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -627,9 +694,9 @@ public class ControlUI extends javax.swing.JFrame implements SerialPortEventList
         this.Set_Temp.dispose();  
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void outTemp_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outTemp_showActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_outTemp_showActionPerformed
 
     private void modeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modeActionPerformed
         // TODO add your handling code here:
@@ -660,6 +727,10 @@ public class ControlUI extends javax.swing.JFrame implements SerialPortEventList
             this.user_pre_mode_ind.setBackground(Color.white);
         }  
     }//GEN-LAST:event_energy_save_enMouseClicked
+
+    private void outTempFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outTempFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_outTempFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -731,6 +802,9 @@ public class ControlUI extends javax.swing.JFrame implements SerialPortEventList
     private javax.swing.JToggleButton energy_save_en;
     private javax.swing.JLabel energy_save_ind;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -738,15 +812,18 @@ public class ControlUI extends javax.swing.JFrame implements SerialPortEventList
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel mannual_mode_ind;
     private javax.swing.JToggleButton mode;
+    private javax.swing.JTextField outTempField;
+    private javax.swing.JTextField outTemp_show;
     private javax.swing.JTextField photo1;
+    private javax.swing.JTextField roomTempField;
+    private javax.swing.JTextField roomTemp_show;
     private javax.swing.JButton setTempButton;
     private javax.swing.JTextField setTempField;
     private javax.swing.JTextField setTemp_show;
