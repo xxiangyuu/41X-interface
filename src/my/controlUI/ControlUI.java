@@ -673,7 +673,7 @@ public class ControlUI extends javax.swing.JFrame implements SerialPortEventList
     }//GEN-LAST:event_ChangeSetTempActionPerformed
 
     private void setTempButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setTempButtonActionPerformed
-        
+        //
         String setTemp_toString = "S" + this.setTempField.getText();
         String roomTemp_toString = "R" + this.roomTempField.getText();
         String outTemp_toString = "O" + this.outTempField.getText();
